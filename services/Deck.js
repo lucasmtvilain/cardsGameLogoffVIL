@@ -35,6 +35,10 @@ const Card = require('./Card.js').Card;
     deal(){
         return this.deck.pop();
     }
+
+    getAmountCards(){
+        return this.deck.length;
+    }
 }
 
 
