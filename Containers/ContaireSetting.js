@@ -12,13 +12,17 @@ class ContaireSetting extends React.Component {
         return (
 
             <View style={ styles.container }>
-                <Image
-                    style={{width: 50, height: 50}}
-                    source={require('../assets/images/avatar.jpg')}
-                />
-                <Text style={ styles.textStyle }>
-                    Pseudo
-                </Text>
+                <View style={{flexDirection: 'column', justifyContent: 'center',}}>
+                    <View style={{flexDirection: 'row', justifyContent: 'center',}}>
+                        <Image
+                            style={{width: 50, height: 50}}
+                            source={require('../assets/images/avatar.jpg')}
+                        />
+                        <Text style={ styles.textStyle }>
+                            Pseudo
+                        </Text>
+                    </View>
+                </View>
             </View>
         )
     }
@@ -27,11 +31,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'row',
-        alignContent:'center',
+        justifyContent: 'center',
+        alignItems: 'stretch',
         backgroundColor: 'pink',
 
     },
     textStyle: {
+        marginBottom:10,
+        marginLeft:20,
+        textAlign:'center',
         fontWeight: 'bold',
         fontSize:40,
     }

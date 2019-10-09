@@ -20,7 +20,7 @@ export default class HomeScreen extends React.Component{
 
     return (
         <View style={ styles.container }>
-          <View style={{height: 50, backgroundColor: 'powderblue'}} >
+          <View style={styles.containerTitle} >
             <Text style={styles.textStyle}>
               TITRE
             </Text>
@@ -28,11 +28,28 @@ export default class HomeScreen extends React.Component{
           <View style={styles.containerPseudo} >
             <ContaireSetting/>
           </View>
-          <View style={{height: 100, backgroundColor: 'steelblue'}} />
-          <Button
-              title="Game"
-              onPress={() => navigate('Game')}
-          />
+          <View style={styles.containerListeGames}>
+            <ScrollView>
+            <View style={{ height: 50, backgroundColor: 'red'}} />
+            <View style={{ height: 50, backgroundColor: 'yellow'}} />
+            <View style={{ height: 50, backgroundColor: 'red'}} />
+            <View style={{ height: 50, backgroundColor: 'yellow'}} />
+            <View style={{ height: 50, backgroundColor: 'red'}} />
+            <View style={{ height: 50, backgroundColor: 'yellow'}} />
+            <View style={{ height: 50, backgroundColor: 'red'}} />
+            <View style={{ height: 50, backgroundColor: 'yellow'}} />
+            <View style={{ height: 50, backgroundColor: 'red'}} />
+            <View style={{ height: 50, backgroundColor: 'yellow'}} />
+            <View style={{ height: 50, backgroundColor: 'red'}} />
+            <View style={{ height: 50, backgroundColor: 'yellow'}} />
+            </ScrollView>
+          </View>
+          <View style={styles.containerButton}>
+            <Button
+                title="JOUER"
+                onPress={() => navigate('Game')}
+            />
+          </View>
 
         </View>
 
@@ -44,7 +61,7 @@ export default class HomeScreen extends React.Component{
 HomeScreen.navigationOptions = {
   header: null,
 };
-
+//
 function DevelopmentModeNotice() {
   if (__DEV__) {
     const learnMoreButton = (
@@ -88,19 +105,31 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
   },
   containerTitle: {
-    height: 50,
-    alignItems: 'stretch',
+    flex: 1,
     backgroundColor: 'powderblue'
   }  ,
   textStyle: {
     fontWeight: 'bold',
     textAlign: 'center',
     fontSize:40,
-    backgroundColor: 'powderblue'
   } ,
   containerPseudo: {
-    height: 50,
+    flex: 1,
     alignItems: 'stretch',
-    backgroundColor: 'skyblue'
+    backgroundColor: 'red'
+  },
+  containerListeGames: {
+    flex:3,
+    backgroundColor: 'steelblue'
+  },
+  containerButton: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'powderblue',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    fontSize:30,
   }
 });
