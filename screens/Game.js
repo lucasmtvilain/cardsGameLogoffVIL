@@ -1,5 +1,6 @@
 import React from "react";
 import {StyleSheet, View, Text} from "react-native";
+import ComponantPlayer from '../Containers/ComponantPlayer';
 
 export default class Game extends React.Component {
     constructor(props) {
@@ -11,9 +12,7 @@ export default class Game extends React.Component {
         return(
             <View style = {styles.container}>
                 <View style = {styles.players}>
-                    <Text>
-                        Players
-                    </Text>
+                    <ComponantPlayer/>
                 </View>
                 <View style = {styles.game}>
                     <View style = {styles.deck}>
