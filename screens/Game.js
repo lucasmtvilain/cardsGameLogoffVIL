@@ -2,10 +2,14 @@ import React from "react";
 import {StyleSheet, View, Text} from "react-native";
 import ComponantPlayer from '../Containers/ComponantPlayer';
 
+const Player = require('../services/Player').Player;
+
 export default class Game extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            player : new Player(1, "PannacaTarte","><","")
+        };
     }
 
     render() {
