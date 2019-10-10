@@ -38,7 +38,7 @@ export default class Game extends React.Component {
                         {/* CL */}
                         <View style = {styles.deckCards}>
                             <Image
-                                style={{flex:1, width: 100}}
+                                style={{ alignSelf: 'stretch'}}
                                 source={require('../assets/images/Cards/card_face_down.jpg')}
                             />
                         </View>
