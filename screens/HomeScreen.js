@@ -11,6 +11,9 @@ import {
   View,
 } from 'react-native';
 
+const Player = require('../services/Player').Player;
+const Game = require('../services/Game').Game;
+
 import ContaireSetting from '../Containers/ContaireSetting';
 
 export default class HomeScreen extends React.Component{
@@ -30,18 +33,7 @@ export default class HomeScreen extends React.Component{
           </View>
           <View style={styles.containerListeGames}>
             <ScrollView>
-              <View style={{ height: 50, backgroundColor: 'red'}} />
-              <View style={{ height: 50, backgroundColor: 'yellow'}} />
-              <View style={{ height: 50, backgroundColor: 'red'}} />
-              <View style={{ height: 50, backgroundColor: 'yellow'}} />
-              <View style={{ height: 50, backgroundColor: 'red'}} />
-              <View style={{ height: 50, backgroundColor: 'yellow'}} />
-              <View style={{ height: 50, backgroundColor: 'red'}} />
-              <View style={{ height: 50, backgroundColor: 'yellow'}} />
-              <View style={{ height: 50, backgroundColor: 'red'}} />
-              <View style={{ height: 50, backgroundColor: 'yellow'}} />
-              <View style={{ height: 50, backgroundColor: 'red'}} />
-              <View style={{ height: 50, backgroundColor: 'yellow'}} />
+              { /*this.renderButtons()*/}
             </ScrollView>
           </View>
           <View style={styles.containerButton}>
@@ -56,46 +48,22 @@ export default class HomeScreen extends React.Component{
     );
   }
 
-}
 
-HomeScreen.navigationOptions = {
-  header: null,
-};
-//
-function DevelopmentModeNotice() {
-  if (__DEV__) {
-    const learnMoreButton = (
-        <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-    );
 
-    return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled: your app will be slower but you can use
-          useful development tools. {learnMoreButton}
-        </Text>
-    );
-  } else {
-    return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode: your app will run at full speed.
-        </Text>
-    );
+  _renderGames() {
+    return initialArr.map((item) => {
+      return (
+          <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} >
+            <Text>
+              {item.text}
+            </Text>
+          </View>
+      );
+    });
   }
+
 }
 
-function handleLearnMorePress() {
-  WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/workflow/development-mode/'
-  );
-}
-
-function handleHelpPress() {
-  WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-  );
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -133,11 +101,3 @@ const styles = StyleSheet.create({
     fontSize:30,
   }
 });
-
-class Player {
-  constructor() {//connexionId, username,emoji
-    this.connexionId = connexionId;
-    this.username = username;
-    this.emoji = emoji;
-  }
-}

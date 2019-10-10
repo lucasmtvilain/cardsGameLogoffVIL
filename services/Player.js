@@ -5,11 +5,15 @@ module.exports.Player = class {
         this.username = username ;
         this.emoji = emoji ;
         this.joinAt = joinAt ;
+        this.CardsNum = 0;
         this.GameId = null;
     }
 
     getConnexionId() {
         return this.connexionId;
+    }
+    getCardsNum(){
+        return this.CardsNum;
     }
 
     getUsername() {
