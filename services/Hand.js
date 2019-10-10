@@ -5,7 +5,7 @@ module.exports.Hand = class {
 
     constructor() {
         this.nbCards = 0;
-        this.cards = [];
+        this.cards = new Array();
     }
 
     addCard(card) {

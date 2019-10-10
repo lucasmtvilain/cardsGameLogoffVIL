@@ -37,4 +37,8 @@ module.exports.Player = class {
         this.GameId = GameId;
     }
 
+    getHand() {
+        return this.hand;
+    }
+
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import {StyleSheet, View, Text, Image} from "react-native";
 import ComponantPlayer from '../Containers/ComponantPlayer';
+import ComponentHand from '../Containers/ComponentHand';
 // CL
 import ComponentCard from '../Containers/ComponentCard';
 import ComponentDeck from '../Containers/ComponentDeck';
@@ -9,6 +10,7 @@ import ComponentDeck from '../Containers/ComponentDeck';
 const Player = require('../services/Player').Player;
 // CL
 const Deck = require('../services/Deck').Deck;
+const Hand = require('../services/Hand').Hand;
 // End CL
 
 export default class Game extends React.Component {
@@ -23,10 +25,12 @@ export default class Game extends React.Component {
     }
 
     render() {
+        this.test();
         return(
             <View style = {styles.container}>
                 <View style = {styles.players}>
                     <ComponantPlayer/>
+
                 </View>
                 <View style = {styles.game}>
                     <View style = {styles.deck}>
@@ -54,13 +58,22 @@ export default class Game extends React.Component {
                 </View>
 
                 <View style = {styles.hand}>
-                    <Text>
-                        Hand
-                    </Text>
+                    <ComponentHand playerHandJSON = {JSON.stringify(this.state.player.getHand().getCards())} />
                 </View>
             </View>
         );
     }
+
+    test() {
+        var card1 = this.state.currentDeck.deal();
+        var card2 = this.state.currentDeck.deal();
+        var card3 = this.state.currentDeck.deal();
+
+        this.state.player.getHand().addCard(card1);
+        this.state.player.getHand().addCard(card2);
+        this.state.player.getHand().addCard(card3);
+    }
+
 }
 
 
@@ -105,6 +118,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignContent:'center',
-        backgroundColor: 'blue',
+        alignItems:'center',
+        //backgroundColor: 'blue',
     },
 });
