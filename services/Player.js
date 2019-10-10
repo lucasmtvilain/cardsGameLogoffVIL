@@ -1,3 +1,5 @@
+const Hand = require('./Hand.js').Hand;
+
 module.exports.Player = class {
 
     constructor(connexionId, username,emoji,joinAt) {
@@ -5,7 +7,7 @@ module.exports.Player = class {
         this.username = username ;
         this.emoji = emoji ;
         this.joinAt = joinAt ;
-        this.CardsNum = 0;
+        this.hand = new Hand();
         this.GameId = null;
     }
 
