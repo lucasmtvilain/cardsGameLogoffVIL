@@ -1,5 +1,6 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
+import Emoji from 'react-native-emoji';
+
 import {
   Image,
   Platform,
@@ -13,13 +14,30 @@ import {
 
 const Player = require('../services/Player').Player;
 const Game = require('../services/Game').Game;
+const StorePlayer = require('../services/StorePlayer').StorePlayer;
 
 import ContaireSetting from '../Containers/ContaireSetting';
 
-export default class HomeScreen extends React.Component{
-  render(){
 
+export default class HomeScreen extends React.Component{
+
+  constructor(props) {
+    super(props);
+
+    let storePlayer = new StorePlayer();
+    this.state = { player : new Player(0, "","",""),
+      store : new StorePlayer(),
+    };
+
+    storePlayer._storeGetPlayer().then(result=>{
+      this.state.player.convertFromJson(JSON.parse(result));
+    });
+
+  }
+
+  render(){
     const {navigate} = this.props.navigation;
+
 
     return (
         <View style={ styles.container }>
@@ -29,11 +47,11 @@ export default class HomeScreen extends React.Component{
             </Text>
           </View>
           <View style={styles.containerPseudo} >
-            <ContaireSetting/>
+            <ContaireSetting> </ContaireSetting>
           </View>
           <View style={styles.containerListeGames}>
             <ScrollView>
-              { /*this.renderButtons()*/}
+
             </ScrollView>
           </View>
           <View style={styles.containerButton}>

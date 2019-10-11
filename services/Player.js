@@ -11,6 +11,14 @@ module.exports.Player = class {
         this.GameId = null;
     }
 
+    convertFromJson(Json){
+        this.connexionId =Json.connexionId;
+        this.username = Json.username ;
+        this.emoji = Json.emoji ;
+        this.joinAt = Json.joinAt ;
+        this.GameId = Json.GameId;
+    }
+
     getConnexionId() {
         return this.connexionId;
     }
@@ -39,6 +47,9 @@ module.exports.Player = class {
 
     getHand() {
         return this.hand;
+    }
+    setEmoji(emoji){
+        this.emoji = emoji;
     }
 
 }
