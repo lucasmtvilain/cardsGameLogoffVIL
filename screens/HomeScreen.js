@@ -17,6 +17,7 @@ const Game = require('../services/Game').Game;
 const StorePlayer = require('../services/StorePlayer').StorePlayer;
 
 import ContaireSetting from '../Containers/ContaireSetting';
+import SelectGameComponent from '../Containers/SelectGameComponent';
 
 
 export default class HomeScreen extends React.Component{
@@ -51,7 +52,7 @@ export default class HomeScreen extends React.Component{
           </View>
           <View style={styles.containerListeGames}>
             <ScrollView>
-
+              <SelectGameComponent/>
             </ScrollView>
           </View>
           <View style={styles.containerButton}>

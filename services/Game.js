@@ -3,7 +3,7 @@ const Player = require('./Player.js').Player;
 module.exports.Game = class{
 
     constructor(gameId, GameName,maxPlayer,createAt,Player) {
-        this.gameId;
+        this.gameId =gameId;
         this.GameName = GameName;
         this.maxPlayer = maxPlayer;
         this.createAt = createAt;
