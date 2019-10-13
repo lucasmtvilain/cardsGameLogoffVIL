@@ -51,5 +51,8 @@ module.exports.Player = class {
     setEmoji(emoji){
         this.emoji = emoji;
     }
+    setGameId(index){
+        this.GameId = index;
+    }
 
 }
