@@ -52,7 +52,6 @@ export default class CreateGameComponant extends Component {
                                 onPress={() => {
                                     let game1 = new Game(0, this.state.nomGame,this.state.nbPlayer,"",this.state.player);
 
-                                    console.log('name : '+game1.GameName+"\n nombre:"+game1.maxPlayer)
                                     this.setModalVisible(!this.state.modalVisible);
                                 }}>
                             </Button>

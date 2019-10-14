@@ -54,5 +54,8 @@ module.exports.Player = class {
     setGameId(index){
         this.GameId = index;
     }
+    setUserName(name){
+        this.username = name;
+    }
 
 }

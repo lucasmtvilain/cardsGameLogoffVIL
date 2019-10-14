@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet,TextInput} from 'react-native'
 const Player = require('../services/Player').Player;
 import Menu, { MenuItem } from "react-native-material-menu";
 import Emoji from 'react-native-emoji';
@@ -19,12 +19,14 @@ class ContaireSetting extends React.Component {
             Player :joueur,
             filter: joueur.getEmoji(),
             store : new StorePlayer(),
+            name: ''
         };
 
         storePlayer._storeGetPlayer().then(result=>{
             let newPlayer = new Player(0, "Non Connecter","tomato","");
             newPlayer.convertFromJson(JSON.parse(result));
             this.setState({Player : newPlayer})
+            this.setState({name:newPlayer.getUsername()})
             this.setState({filter: newPlayer.getEmoji()});
         });
     }
@@ -42,7 +44,15 @@ class ContaireSetting extends React.Component {
         this.state.Player.setEmoji(JSON.parse(emoji)); //modification du player
         this.state.store._storeRegister(this.state.Player);// enregistrement du contacte modifier
         this._menu.hide();// masquer le menu
+
+        console.log(this.state.Player);
     };
+
+    _changeName = (name)=>{
+        this.state.Player.setUserName(name);
+        this.setState({name:name});
+        this.state.store._storeRegister(this.state.Player);
+    }
 
     showMenu = () => {
         this._menu.show();
@@ -75,13 +85,22 @@ class ContaireSetting extends React.Component {
                             <MenuFilterItem onPress={this.sort} filter="dog">
                                 <Emoji  name="dog" style={{fontSize: 30}} />
                             </MenuFilterItem>
+                            <MenuFilterItem onPress={this.sort} filter="turkey">
+                                <Emoji  name="turkey" style={{fontSize: 30}} />
+                            </MenuFilterItem>
 
                         </Menu>
 
 
                         <Text style={ styles.textStyle }>
-                            {this.state.Player.getUsername()}
+                            {//this.state.Player.getUsername()
+                                 }
                         </Text>
+
+                        <TextInput style={styles.textStyle }
+                                   onChangeText={text => this._changeName(text)}
+                                   value={this.state.name}
+                        />
                     </View>
                 </View>
             </View>
@@ -107,7 +126,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: 'pink',
+        backgroundColor: '#212121',
+        borderColor:'#b6b6b6',
+        borderWidth: 3,
+        borderRadius:7
 
     },
     textStyle: {
@@ -116,6 +138,7 @@ const styles = StyleSheet.create({
         textAlign:'center',
         fontWeight: 'bold',
         fontSize:40,
+        color: '#FFFFFF'
     }
 
 });
