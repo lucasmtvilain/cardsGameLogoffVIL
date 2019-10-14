@@ -6,7 +6,7 @@ const Card = require('./Card.js').Card;
         this.deck = [];
 
         const suits = [0, 1, 2, 3]; //0 = Hearts, 1 = Spades, 2 = Clubs, 3 = Diamonds
-        const values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 ];
+        const values = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         //0 = Ace, 1 = 2, [...], 12 = King
         //Image files : [#suit]_[#value].gif
 

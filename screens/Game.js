@@ -1,5 +1,5 @@
 import React from "react";
-import {StyleSheet, View, Text, Image} from "react-native";
+import {StyleSheet, View, Text, Image, PanResponder} from "react-native";
 import ComponantPlayer from '../Containers/ComponantPlayer';
 import ComponentHand from '../Containers/ComponentHand';
 // CL
@@ -17,15 +17,20 @@ export default class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            player : new Player(1, "PannacaTarte","><","")
+            player: new Player(1, "PannacaTarte", "><", "")
             // CL
-            , currentDeck : new Deck()
+            , currentDeck: new Deck()
             // End CL
         };
     }
 
     render() {
         this.test();
+        let animatedDeck;
+        if (this.state.currentDeck.getAmountCards() > 0) {
+            animatedDeck = <ComponentCard/>;
+        }
+
         return(
             <View style = {styles.container}>
                 <View style = {styles.players}>
@@ -40,13 +45,8 @@ export default class Game extends React.Component {
                             {/* End CL */}
                         </Text>
                         {/* CL */}
-                        <View style = {styles.deckCards}>
-                            <Image
-                                style={{ alignSelf: 'stretch'}}
-                                source={require('../assets/images/Cards/card_face_down.jpg')}
-                            />
-                        </View>
-
+                        {/*deck*/}
+                        {animatedDeck}
                         {/* End CL */}
                     </View>
 
@@ -99,12 +99,6 @@ const styles = StyleSheet.create({
     deck: {
         flex: 2,
         flexDirection: 'column',
-        alignContent:'center',
-        //backgroundColor: 'brown',
-    },
-    deckCards: {
-        flex: 1,
-        flexDirection: 'row',
         alignContent:'center',
         //backgroundColor: 'brown',
     },

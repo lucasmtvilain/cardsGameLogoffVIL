@@ -1,6 +1,6 @@
 import React from "react";
 import {StyleSheet, View, Text, Image} from "react-native";
-//import Images from './ImageCollection.js';
+import ComponentDeck from "./ComponentDeck";
 
 const Hand = require('../services/Hand.js').Hand;
 const Card = require('../services/Card.js').Card;
@@ -79,27 +79,12 @@ export default class ComponentHand extends React.Component {
                     let cardPath = cardImages.get(cardToRender);
 
                     return (
-                        <Image
+                        <Image id={key}
                             source={cardPath}
                         />
                     );
 
                 })}
-
-                {/*Object.keys(this.state.player.getHand()).map(function(i) {
-
-                        <Image
-                            style={{ flex: 1}}
-                            source={require('../assets/images/Cards/' + { this.state.player.getHand()[i] } + '_' + + '.jpg')}
-                        />
-                    })*/}
-
-                {/*this.state.player.getHand().forEach(function() {
-                        <Image
-                            style={{ flex: 1}}
-                            source={require('../assets/images/Cards/' + {  } + '_' + + '.jpg')}
-                        />
-                    })*/}
             </View>
         );
     }
