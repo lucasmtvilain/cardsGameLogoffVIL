@@ -9,6 +9,8 @@ import {
   Button,
   TouchableOpacity,
   View,
+  Modal,
+  TouchableHighlight
 } from 'react-native';
 
 const Player = require('../services/Player').Player;
@@ -16,7 +18,8 @@ const Game = require('../services/Game').Game;
 const StorePlayer = require('../services/StorePlayer').StorePlayer;
 
 import ContaireSetting from '../Containers/ContaireSetting';
-import SelectGameComponent from '../Containers/SelectGameComponent';
+import CreateGameComponant from '../Containers/CreateGameComponant';
+import SelectGameComponent from '../Containers/SelectGameComponent';//
 
 
 export default class HomeScreen extends React.Component{
@@ -27,12 +30,17 @@ export default class HomeScreen extends React.Component{
     let storePlayer = new StorePlayer();
     this.state = { player : new Player(0, "","",""),
       store : new StorePlayer(),
+      modalVisible: false,
     };
 
     storePlayer._storeGetPlayer().then(result=>{
       this.state.player.convertFromJson(JSON.parse(result));
     });
 
+  }
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
   }
 
   render(){
@@ -55,10 +63,7 @@ export default class HomeScreen extends React.Component{
             </ScrollView>
           </View>
           <View style={styles.containerButton}>
-            <Button
-                title="JOUER"
-                onPress={() => navigate('Game')}
-            />
+            <CreateGameComponant/>
           </View>
 
         </View>
