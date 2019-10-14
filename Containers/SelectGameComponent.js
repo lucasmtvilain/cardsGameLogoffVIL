@@ -7,6 +7,7 @@ const StorePlayer = require('../services/StorePlayer').StorePlayer;
 
 export default class SelectGameComponent extends React.Component {
 
+
     constructor(props){
         super(props);
 
@@ -30,11 +31,13 @@ export default class SelectGameComponent extends React.Component {
         listGame.push(game7);
 
 
+
         this.state = {
             search: '',
             player : new Player(0, "","",""),
             listGame:listGame,
             store : new StorePlayer(),
+            navigation : this.props.navigation,
         };
 
         let storePlayer = new StorePlayer();
@@ -47,7 +50,7 @@ export default class SelectGameComponent extends React.Component {
     _SelectGame(index){
         this.state.player.setGameId(JSON.parse(index));
         this.state.store._storeRegister(this.state.player);// enregistrement du contacte modifier
-
+        this.state.navigation.navigate('Game');
     }
 
 
@@ -58,6 +61,8 @@ export default class SelectGameComponent extends React.Component {
     };
 
     _AfficheGame(){
+
+
         return this.state.listGame.map((item,keyId) =>  {
             if(item.GameName.includes(this.state.search)){
                 return(<View key={keyId}>

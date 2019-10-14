@@ -1,5 +1,4 @@
 import React from 'react';
-import Emoji from 'react-native-emoji';
 
 import {
   Image,
@@ -52,7 +51,7 @@ export default class HomeScreen extends React.Component{
           </View>
           <View style={styles.containerListeGames}>
             <ScrollView>
-              <SelectGameComponent/>
+              <SelectGameComponent navigation={this.props.navigation}/>
             </ScrollView>
           </View>
           <View style={styles.containerButton}>
