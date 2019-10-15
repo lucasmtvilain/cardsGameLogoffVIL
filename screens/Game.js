@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignContent:'center',
-        backgroundColor: 'pink',
+        backgroundColor: '#212121',
     },
     game: {
         flex: 1,

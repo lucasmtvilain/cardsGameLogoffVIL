@@ -12,9 +12,9 @@ module.exports.StorePlayer = class  {
             await AsyncStorage.setItem('PlayerConnect', JSON.stringify(Player));
 
             // debug
-            //const player = await AsyncStorage.getItem('PlayerConnect');
-            //var affJoueur = JSON.parse(player);
-            //console.log(player);
+            const player = await AsyncStorage.getItem('PlayerConnect');
+            var affJoueur = JSON.parse(player);
+            console.log(player);
             // fin debug
 
 

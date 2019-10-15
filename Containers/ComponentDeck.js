@@ -77,5 +77,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignContent:'center',
         //backgroundColor: 'brown',
+        backgroundColor: '#212121',
+        borderColor:'#b6b6b6',
+        borderWidth: 3,
+        borderRadius:7
     },
 });

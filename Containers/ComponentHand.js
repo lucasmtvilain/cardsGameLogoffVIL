@@ -79,7 +79,7 @@ export default class ComponentHand extends React.Component {
                     let cardPath = cardImages.get(cardToRender);
 
                     return (
-                        <Image id={key}
+                        <Image key={key}
                             source={cardPath}
                         />
                     );
@@ -96,6 +96,10 @@ const styles = StyleSheet.create({
         marginTop: 40,
         flexDirection: 'row',
         alignItems: 'stretch',
+        backgroundColor: '#b6b6b6',
+        borderColor:'#FFFFFF',
+        borderWidth: 3,
+        borderRadius:7
     },
 });
 
