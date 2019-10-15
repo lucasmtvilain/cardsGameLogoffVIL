@@ -29,12 +29,16 @@ export default class CreateGameComponant extends Component {
                 <Modal
                     styles = {{backgroundColor : '#1DE2EA'}}
                     animationType="slide"
-                    transparent={false}
+                    transparent={true}
                     visible={this.state.modalVisible}
                     onRequestClose={() => {
                         Alert.alert('Modal has been closed.');
                     }}>
-                    <View style={{marginTop: 22,backgroundColor : '#1DE2EA'}}>
+                    <View style={{marginTop: 22
+                        ,backgroundColor : '#1DE2EA'
+                        ,width: 300
+                        ,height: 300
+                    }}>
                         <View>
                             <TextInput style={{backgroundColor : '#B3B3B3'}}
                                        placeholder='Game Name'

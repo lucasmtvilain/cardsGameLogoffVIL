@@ -89,6 +89,7 @@ export default class SelectGameComponent extends React.Component {
                 return (
                   <Button key={keyId}
                           color={'#212121'}
+                    //buttonStyle:={{ borderColor: '#b6b6b6' }}
                           borderRadius='5'
                           title={item.GameName}
                           onPress={() => this._SelectGame(item.gameId)}/>

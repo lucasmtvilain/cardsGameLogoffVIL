@@ -1,7 +1,9 @@
 import React from 'react'
 import {View, Text, StyleSheet,TextInput} from 'react-native'
 const Player = require('../services/Player').Player;
+
 import Menu, { MenuItem } from "react-native-material-menu";
+
 import Emoji from 'react-native-emoji';
 const StorePlayer = require('../services/StorePlayer').StorePlayer;
 
@@ -24,7 +26,9 @@ class ContaireSetting extends React.Component {
 
         storePlayer._storeGetPlayer().then(result=>{
             let newPlayer = new Player(0, "Non Connecter","tomato","");
+
             newPlayer.convertFromJson(JSON.parse(result));
+
             this.setState({Player : newPlayer})
             this.setState({name:newPlayer.getUsername()})
             this.setState({filter: newPlayer.getEmoji()});
